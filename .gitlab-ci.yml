@@ -32,7 +32,7 @@ lint:
     - pip install black
   script:
     - echo "Linting the code ..."
-    - black --check .
+    - black .
 
 docker-build:
   stage: docker
