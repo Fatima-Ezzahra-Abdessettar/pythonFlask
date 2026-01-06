@@ -24,13 +24,15 @@ test:
   script:
     - python -m pytest
 
-lint :
+lint:
   stage: lint
   image: python:3.9-slim
-  script:
-    - echo "Linting the code ... "
+  before_script:
+    - pip install --upgrade pip
     - pip install black
-    - black -- check .
+  script:
+    - echo "Linting the code ..."
+    - black --check .
 
 docker-build:
   stage: docker
