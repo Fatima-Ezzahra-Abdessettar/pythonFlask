@@ -1,16 +1,7 @@
 FROM python:3.9-slim
-
-# Définir le répertoire de travail
 WORKDIR /app
-
-# Copier les dépendances
 COPY requirements.txt .
-
-# Installer les dépendances Python
-RUN pip install -- no-cache-dir -r requirements.txt
-
-# Copier le reste des fichiers du projet
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-
-# Commande pour lancer l'application
+EXPOSE 7000
 CMD ["python", "app/main.py"]
